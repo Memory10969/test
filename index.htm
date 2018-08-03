@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>yangmeng</title>
+	<script type="text/javascript">
+		function myFunction() {
+   			 return false;
+		}
+		window.onload=function(){
+			history.pushState(null, null, document.URL);
+	        window.addEventListener('popstate', function () {
+	            history.pushState(null, null, document.URL);
+	        });
+			// 定义全局标量 i 用来判断输出语句
+			i = 5;
+			var is = document.getElementsByClassName('is') [0];
+			is.addEventListener('click', aa, false);
+			var not = document.getElementsByClassName("not") [0];
+			not.addEventListener('click', bb, false);
+		}
+
+		function aa(){
+			alert("哈哈哈,承认了吧");
+		}
+		function bb(){
+			var up = document.getElementsByClassName('up')[0];
+			var p = document.createElement('p');
+			if(i%5==0){
+				 up.append(p);
+				 p.innerHTML = "你不承认?"
+			}else if(i%5==1){
+				up.append(p);
+				p.innerHTML = "别狡辩了,你就是智障"
+			}else if(i%5==2){
+				up.append(p);
+				p.innerHTML = "你再狡辩,我就消失了啊"
+			}else if(i%5==3){
+				up.append(p);
+				p.innerHTML = "哼,你还不信?"
+			}else if(i%5==4){
+				up.append(p);
+				p.innerHTML = "傻眼了吧"
+				document.getElementsByClassName('not')[0].style.display = 'none';
+			}
+			i++;
+		}
+	</script>
+	<style type="text/css">
+		
+		body{
+			text-align : center;
+		}
+
+		.head{
+			color: lightblue;
+			font-size: 4em;
+			font-family: "楷体";
+		}
+		.up{
+			border: 5px solid #CCC;
+			
+		}
+	</style>
+</head>
+<body onbeforeunload="return myFunction()">
+	<!-- 上层-->
+	<div class="up">
+		<p class="head">   你是不是智障? </p>
+		<!-- 上层结束 -->
+	</div>
+	<!-- 下层 -->
+	<div class="down">
+		<button class="is">是</button>&nbsp;<button class="not">不是</button>
+		<!-- 下层结束 -->
+	</div>
+
+</body>
+</html>
